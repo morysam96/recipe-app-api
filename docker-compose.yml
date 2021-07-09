@@ -1,0 +1,24 @@
+#allows us to run docker image easily from our project location
+#so it allows us to easily manage the different services that make up our project
+version: "3"
+
+# define the service
+services:
+  app:
+    build:
+#     set the context to . which is our current directory that we're running docker compose from.
+      context: .
+    ports:
+      - "8000:8000"
+#   volume allows us to get the update that we make to our project into our docker image in real time.
+    volumes:
+      - ./app:/app
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+
+
+
+
+
+#terminal: docker-compose build -> build our image
+

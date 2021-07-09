@@ -24,3 +24,4 @@ RUN adduser -D user
 #switch docker to the user
 USER user
 
+#terminal: docker build .  -> create image file
