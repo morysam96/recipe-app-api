@@ -23,3 +23,5 @@ services:
 #terminal: docker-compose build -> build our image
 #create django project: terminal: docker-compose run app sh -c "django-admin.py startproject app ."  ->
 # name service is (app). (sh -c) run command in shell. create django project in current directory (.) .
+
+#create app: terminal:docker-compose run app sh -c "python manage.py startapp core"
