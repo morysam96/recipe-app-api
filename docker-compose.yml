@@ -14,7 +14,9 @@ services:
     volumes:
       - ./app:/app
     command: >
-      sh -c "python manage.py runserver 0.0.0.0:8000"
+      sh -c "python manage.py wait_for_db &&
+             python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
     environment:
       - DB_HOST=db
       - DB_NAME=app
@@ -38,3 +40,4 @@ services:
 # name service is (app). (sh -c) run command in shell. create django project in current directory (.) .
 
 #create app: terminal:docker-compose run app sh -c "python manage.py startapp core"
+#test app :terminal: docker-compose run app sh -c "python manage.py test && flake8"
